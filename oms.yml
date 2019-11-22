@@ -8,25 +8,22 @@ info:
     url: https://opensource.org/licenses/Apache-2.0
 lifecycle:
   startup:
-    command: ["node", "/app/src/index.js"]
+    command: ['node', '/app/src/index.js']
 health:
   http:
     path: /health
     port: 8080
 actions:
-  message:
+  correct:
     http:
-      path: /message
+      path: /
       method: post
       port: 8080
     arguments:
-      name:
+      text:
         type: string
         required: true
         in: requestBody
     output:
       contentType: application/json
-      type: object
-      properties:
-        message:
-          type: string
+      type: map

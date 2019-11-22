@@ -1,29 +1,32 @@
 {
-  "name": "oms-nodejs",
+  "name": "oms-grammarly",
   "version": "0.0.1",
-  "description": "A Nodejs template for building Open Microservices.",
+  "description": "An Open Microservice wrapper for Grammarly",
   "main": "src/index.js",
   "scripts": {
+    "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microservices/node.git"
+    "url": "git+https://github.com/oms-services/grammarly.git"
   },
   "author": "Microservices <core@openmicroservices.org>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/microservices/node/issues"
+    "url": "https://github.com/oms-services/grammarly/issues"
   },
-  "homepage": "https://github.com/microservices/node#readme",
+  "homepage": "https://github.com/oms-services/grammarly#readme",
   "keywords": [
     "microservice",
     "open-microservice",
     "oms"
   ],
   "dependencies": {
+    "@stewartmcgown/grammarly-api": "^1.1.2",
     "koa": "^2.7.0",
     "koa-json-body": "^5.3.0",
-    "koa-router": "^7.4.0"
+    "koa-router": "^7.4.0",
+    "nodemon": "^2.0.1"
   }
 }

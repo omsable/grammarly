@@ -1,22 +1,30 @@
 #!/usr/bin/env node
 
-const Koa = require('koa');
-const router = require('koa-router')();
-const body = require('koa-json-body');
+const { correct, plagiarism, Grammarly } = require('@stewartmcgown/grammarly-api')
 
-const app = new Koa();
-const port = 8080;
+const Koa = require('koa')
+const router = require('koa-router')()
+const body = require('koa-json-body')
 
-router.post('/message', (ctx, next) => {
-  const { name } = ctx.request.body;
-  ctx.body = {message: `Hello ${name}`};
-});
+const app = new Koa()
+const port = 8080
+
+router.post('/', async (ctx, next) => {
+  const { text = '' } = ctx.request.body
+
+  const client = await new Grammarly()
+  const results = await client.analyse(text).then(correct)
+
+  ctx.body = {
+    results
+  }
+})
 
 router.get('/health', ctx => {
-  ctx.body = 'OK';
-});
+  ctx.body = 'OK'
+})
 
 app.use(body())
-app.use(router.routes());
-app.listen(port);
-console.log(`Listening on localhost:${port}`);
+app.use(router.routes())
+app.listen(port)
+console.log(`Listening on localhost:${port}`)
