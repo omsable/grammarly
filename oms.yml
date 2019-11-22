@@ -2,7 +2,7 @@ oms: 1
 info:
   version: 1.0.0
   title: Grammarly
-  description: A wrapper for the Grammarly API
+  description: A wrapper for the Grammarly Correction API
   license:
     name: Apache 2.0
     url: https://opensource.org/licenses/Apache-2.0

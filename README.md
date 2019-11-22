@@ -1,6 +1,6 @@
 # _Grammarly_ Open Microservice
 
-> A wrapper for the Grammarly API
+> A wrapper for the Grammarly Correction API
 
 [![Open Microservice Specification Version](https://img.shields.io/badge/Open%20Microservice-1.0-477bf3.svg)](https://openmicroservices.org)
 [![Open Microservices Spectrum Chat](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/open-microservices)
