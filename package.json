@@ -1,0 +1,29 @@
+{
+  "name": "oms-nodejs",
+  "version": "0.0.1",
+  "description": "A Nodejs template for building Open Microservices.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microservices/node.git"
+  },
+  "author": "Microservices <core@openmicroservices.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/microservices/node/issues"
+  },
+  "homepage": "https://github.com/microservices/node#readme",
+  "keywords": [
+    "microservice",
+    "open-microservice",
+    "oms"
+  ],
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-json-body": "^5.3.0",
+    "koa-router": "^7.4.0"
+  }
+}
