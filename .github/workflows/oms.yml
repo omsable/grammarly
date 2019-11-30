@@ -1,19 +1,31 @@
-name: Open Microservices Validation
-
-# Trigger the workflow on push or pull request
-on: [push, pull_request]
-
+name: Open Microservices
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - master
+  # Run tests for any PRs.
+  pull_request:
 jobs:
-  oms-validate:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
-
+          node-version: "12.x"
       - name: Install Open Microservices CLI
         run: yarn add @microservices/oms
-
       - name: Validate `oms.yml`
         run: node_modules/.bin/oms validate
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish to Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: ${{ github.repository	}}/oms
+          username: ${{ secrets.DOCKER_GITHUB_USERNAME }}
+          password: ${{ secrets.DOCKER_GITHUB_PASSWORD }}
+          registry: docker.pkg.github.com
